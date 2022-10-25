@@ -7,7 +7,7 @@
         $email      = $_POST['email'];
         $phone     = $_POST['phone'];
         
-            
+        //Adding VAlues to Database   
         $sql = "INSERT INTO users (firstname, lastname, email, phone) VALUES (?, ?, ?, ?)";
         $stmtinsert = $db->prepare($sql);
         $result = $stmtinsert ->execute([$firstname, $lastname, $email, $phone]);
