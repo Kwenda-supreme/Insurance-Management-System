@@ -1,6 +1,4 @@
 <?php
-session_start();
-    $_SESSION;
 
     require_once('config.php');
 
