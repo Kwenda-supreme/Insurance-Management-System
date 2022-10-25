@@ -1,4 +1,7 @@
 <?php
+session_start();
+    $_SESSION;
+
     require_once('config.php');
 
 ?>
@@ -51,7 +54,7 @@
 
                             <hr class="mb-3">
                             <!-- Submit button -->
-                            <input class="btn btn-primary" type="submit" id="register" name="register" value="Sign Up">
+                            <input class="btn btn-primary" type="submit" id="register" name="register" value="Register">
 
                         </div>
                     </div>
