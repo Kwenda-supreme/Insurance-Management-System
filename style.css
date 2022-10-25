@@ -1,0 +1,19 @@
+form{
+    margin-top: 10vh;
+    margin-left: 100px;
+}
+
+label{
+    padding: 10px;
+}
+
+.title{
+    font-size: 50px;
+    letter-spacing: 3px;
+}
+
+b{
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: rgb(49, 46, 46);
+}
