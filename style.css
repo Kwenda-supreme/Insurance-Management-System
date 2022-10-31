@@ -1,15 +1,14 @@
-form{
-    margin-top: 10vh;
-    margin-left: 100px;
+.title{
+    margin-top: 100px;
+}
+
+.text{
+    font-weight: 500;
+    color: red;
 }
 
 label{
     padding: 10px;
-}
-
-.title{
-    font-size: 50px;
-    letter-spacing: 3px;
 }
 
 b{
