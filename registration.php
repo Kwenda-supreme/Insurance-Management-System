@@ -25,7 +25,7 @@
         </div>
 
         <div>
-            <!-- Prompt user to fill details to register -->
+            
             <form action="registration.php" method="post">
                 <div class="container">
                     <div class="row">
@@ -44,7 +44,16 @@
                         </div> 
                         
                         <hr class="mb-3" style="margin-top: 10px;">
+                    </div>
 
+                    <div style="border: 1px solid black;">
+                        <p style="padding-top: 10px; padding-left:10px; font-size: 20px; letter-spacing: 2px; font-weight:600; "> 
+                        1. Applicant Information</p>
+                    </div>
+                    <br>
+
+                    <!-- Prompt user to fill details to register -->
+                    <div class="row">
                         <div class="col-sm-4">
                             <!-- Prompt user to enter firstname -->
                             <label for="firstname"><b>First Name</b></label>
@@ -67,6 +76,7 @@
                             <input class="btn btn-primary" type="submit" id="register" name="register" value="Register">
 
                         </div>
+                    </div>
                     </div>
 
                 </div>
