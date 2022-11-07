@@ -15,6 +15,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+        <style>
+            input{
+                margin-bottom: 30px;
+            }
+        </style>
         
     </head>
     <body>
@@ -59,24 +65,50 @@
                             <label for="firstname"><b>First Name</b></label>
                             <input class="form-control" id="firstname" type="text" name="firstname" required>
 
+                            <!-- Prompt user to enter city -->
+                            <label for="city"><b>City/ District of Residence</b></label>
+                            <input class="form-control" id="city" type="text" name="city" required>
+
+                            <!-- Prompt user to enter village -->
+                            <label for="password"><b>Village</b></label>
+                            <input class="form-control" id="village" type="text" name="village" required>
+
+                        </div>
+
+                        <div class="col-sm-4">
                             <!-- Prompt user to enter lastname -->
                             <label for="lastname"><b>Last Name</b></label>
                             <input class="form-control" id="lastname" type="text" name="lastname" required>
 
+                            <!-- Prompt user to enter nationality -->
+                            <label for="nationality"><b>Nationality</b></label>
+                            <input class="form-control" id="nationality" type="text" name="nationality" required>
+
+                            <!-- Prompt user to enter district -->
+                            <label for="district"><b>Home District</b></label>
+                            <input class="form-control" id="district" type="text" name="district" required>
+
+                        </div>
+
+                        <div class="col-sm-4">
                             <!-- Prompt user to enter email -->
                             <label for="email"><b>Email Address</b></label>
                             <input class="form-control" id="email" type="email" name="email" required>
 
-                            <!-- Prompt user to enter password -->
-                            <label for="password"><b>Phone Number</b></label>
-                            <input class="form-control" id="phone" type="phone" name="phone" required>
+                            <!-- Prompt user to enter phone -->
+                            <label for="phone"><b>Phone Number</b></label>
+                            <input class="form-control" id="phone" type="text" name="phone" required>
 
-                            <hr class="mb-3">
-                            <!-- Submit button -->
-                            <input class="btn btn-primary" type="submit" id="register" name="register" value="Register">
-
+                            <!-- Prompt user to enter T/A -->
+                            <label for="authority"><b>T/A</b></label>
+                            <input class="form-control" id="authority" type="text" name="authority" required>
                         </div>
+                        
                     </div>
+                    <div>
+                    <hr class="mb-3">
+                        <!-- Submit button -->
+                        <input class="btn btn-primary" type="submit" id="register" name="register" value="Register">
                     </div>
 
                 </div>
@@ -97,6 +129,11 @@
                         var lastname    = $('#lastname').val();
                         var email       = $('#email').val();
                         var phone      = $('#phone').val();
+                        var city      = $('#city').val();
+                        var nationality      = $('#nationality').val();
+                        var district  = $('#district').val();
+                        var village  = $('#village').val();
+                        var authority  = $('#authority').val();
                         
 
                             e.preventDefault();
@@ -104,7 +141,8 @@
                             $.ajax({
                                 type : 'POST',
                                 url  : 'process.php',
-                                data : {firstname: firstname, lastname: lastname, email: email, phone: phone },
+                                data : {firstname: firstname, lastname: lastname, email: email, phone: phone, city: city, nationality: nationality,
+                                    district: district, village: village, authority: authority},
                                 success : function(data){
                                     swal.fire({
                                         'title' : 'Successful',
