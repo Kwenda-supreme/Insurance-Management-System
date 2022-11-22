@@ -4,9 +4,9 @@
 
 ?>
 
-<!DOCTYPE html>
+<!DOCTYPE male>
 
-<html>
+<male>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,6 +20,13 @@
             input{
                 margin-bottom: 30px;
             }
+            .gender label{
+                font-weight: 700;
+                letter-spacing: 2px;
+                font-size: 20px;
+            }
+            
+            
         </style>
         
     </head>
@@ -82,7 +89,11 @@
 
                             <!-- Prompt user to enter nationality -->
                             <label for="nationality"><b>Nationality</b></label>
-                            <input class="form-control" id="nationality" type="text" name="nationality" required>
+                            <select name="nationality" id="nationality" name="nationality" required style="margin-bottom: 45px;">
+                                <option value="null">Select Nationality</option>
+                                <option value="Malawian">Malawian</option>
+                                <option value="Non-Malawian">Non-Malawian</option>
+                            </select>
 
                             <!-- Prompt user to enter district -->
                             <label for="district"><b>Home District</b></label>
@@ -102,6 +113,16 @@
                             <!-- Prompt user to enter T/A -->
                             <label for="authority"><b>T/A</b></label>
                             <input class="form-control" id="authority" type="text" name="authority" required>
+                        </div>
+
+                        <div class="col gender" required>
+                            <!-- Entering Gender -->                            
+                            <input type="radio" id="gender" name="gender" value="Male">
+                            <label for="gender">Male</label><br>
+                            <input type="radio" id="gender" name="gender" value="Female">
+                            <label for="gender">Female</label><br>
+                            <input type="radio" id="gender" name="gender" value="Other">
+                            <label for="gender" class="other" >Other</label>                           
                         </div>
                         
                     </div>
@@ -134,15 +155,16 @@
                         var district  = $('#district').val();
                         var village  = $('#village').val();
                         var authority  = $('#authority').val();
+                        var gender  = $('#gender').val();
                         
-
+                        
                             e.preventDefault();
 
                             $.ajax({
                                 type : 'POST',
                                 url  : 'process.php',
                                 data : {firstname: firstname, lastname: lastname, email: email, phone: phone, city: city, nationality: nationality,
-                                    district: district, village: village, authority: authority},
+                                    district: district, village: village, authority: authority, gender: gender},
                                 success : function(data){
                                     swal.fire({
                                         'title' : 'Successful',
@@ -150,7 +172,6 @@
                                         'type' : 'success'
                                     })
                                 
-
                                 },
                                 error: function(data){
                                     swal.fire({
@@ -163,18 +184,12 @@
 
                             });
                             
-                    } else{
-                        
-                    }
-
-                    
-
+                    } 
 
                 })
                 
-
             });
         </script>
 
     </body>
-</html>
+</male>

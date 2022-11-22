@@ -11,11 +11,17 @@
         $district     = $_POST['district'];
         $village     = $_POST['village'];
         $authority     = $_POST['authority'];
+        $gender     = $_POST['gender'];
+        
+        
         
         //Adding VAlues to Database   
-        $sql = "INSERT INTO users (firstname, lastname, email, phone, city, nationality, district, village, authority) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO users (firstname, lastname, email, phone, city, nationality, district, 
+                village, authority, gender)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmtinsert = $db->prepare($sql);
-        $result = $stmtinsert ->execute([$firstname, $lastname, $email, $phone, $city, $nationality, $district, $village, $authority]);
+        $result = $stmtinsert ->execute([$firstname, $lastname, $email, $phone, $city, $nationality,
+                 $district, $village, $authority, $gender]);
 
             if($result){
                 echo 'Client Registered Succesfully';
