@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 22, 2022 at 04:28 PM
+-- Generation Time: Nov 23, 2022 at 03:15 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.26
 
@@ -40,17 +40,17 @@ CREATE TABLE IF NOT EXISTS `users` (
   `village` varchar(30) NOT NULL,
   `authority` varchar(30) NOT NULL,
   `gender` varchar(10) NOT NULL,
+  `DOB` date NOT NULL,
+  `cover` varchar(15) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `phone`, `city`, `nationality`, `district`, `village`, `authority`, `gender`) VALUES
-(26, 'ss', 'c', 'a@ab.com', 'a', 'c', 'null', 'a', 's', 'c', 'Male'),
-(27, 'ccc', 'sda', 'a@ab.com', 'aass', 'aaa', 'malawian', 'zz', 'aa', 'cc', 'Male'),
-(28, 'sa', 'Kwenda', 'test@ihubonline.tv', '+265881404368', 'Salima', 'Non-Malawian', 'a', 's', 'c', 'Male');
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `phone`, `city`, `nationality`, `district`, `village`, `authority`, `gender`, `DOB`, `cover`) VALUES
+(29, 'Mphatso', 'Kwenda', 'mkwenda98@gmail.com', '+265881404368', 'Lilongwe', 'Malawian', 'salima', 'chenyama', 'kalonga', 'male', '2022-11-01', 'basic');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

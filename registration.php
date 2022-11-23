@@ -1,7 +1,7 @@
 <?php
 
     require_once('config.php');
-
+    
 ?>
 
 <!DOCTYPE male>
@@ -20,25 +20,18 @@
             input{
                 margin-bottom: 30px;
             }
-            .gender label{
+
+            .plan label{
                 font-weight: 700;
                 letter-spacing: 2px;
                 font-size: 20px;
             }
-            
-            
+                   
         </style>
         
     </head>
     <body>
-        <div>
-            <?php
-                
-            ?>
-        </div>
-
-        <div>
-            
+                 
             <form action="registration.php" method="post">
                 <div class="container">
                     <div class="row">
@@ -59,6 +52,7 @@
                         <hr class="mb-3" style="margin-top: 10px;">
                     </div>
 
+                    <!-- APPLICANT INFORMATION -->
                     <div style="border: 1px solid black;">
                         <p style="padding-top: 10px; padding-left:10px; font-size: 20px; letter-spacing: 2px; font-weight:600; "> 
                         1. Applicant Information</p>
@@ -80,6 +74,15 @@
                             <label for="password"><b>Village</b></label>
                             <input class="form-control" id="village" type="text" name="village" required>
 
+                            <!-- Entering Gender -->
+                            <label for="Gender"><b>Gender</b></label><br>
+                            <select name="gender" id="gender" name="gender" required >
+                                <option value="null">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+
                         </div>
 
                         <div class="col-sm-4">
@@ -88,17 +91,20 @@
                             <input class="form-control" id="lastname" type="text" name="lastname" required>
 
                             <!-- Prompt user to enter nationality -->
-                            <label for="nationality"><b>Nationality</b></label>
-                            <select name="nationality" id="nationality" name="nationality" required style="margin-bottom: 45px;">
+                            <label for="nationality"><b>Nationality</b></label><br>
+                            <select name="nationality" id="nationality" name="nationality" style="margin-bottom: 44px;">
                                 <option value="null">Select Nationality</option>
                                 <option value="Malawian">Malawian</option>
                                 <option value="Non-Malawian">Non-Malawian</option>
-                            </select>
+                            </select><br>
 
                             <!-- Prompt user to enter district -->
                             <label for="district"><b>Home District</b></label>
                             <input class="form-control" id="district" type="text" name="district" required>
 
+                            <!-- Entering Date Of Birth -->
+                            <label for="DOB"><b>Date Of Birth</b> </label>
+                            <input type="date" id="DOB" name="DOB" class="form-control">
                         </div>
 
                         <div class="col-sm-4">
@@ -114,27 +120,42 @@
                             <label for="authority"><b>T/A</b></label>
                             <input class="form-control" id="authority" type="text" name="authority" required>
                         </div>
-
-                        <div class="col gender" required>
-                            <!-- Entering Gender -->                            
-                            <input type="radio" id="gender" name="gender" value="Male">
-                            <label for="gender">Male</label><br>
-                            <input type="radio" id="gender" name="gender" value="Female">
-                            <label for="gender">Female</label><br>
-                            <input type="radio" id="gender" name="gender" value="Other">
-                            <label for="gender" class="other" >Other</label>                           
-                        </div>
                         
                     </div>
+
+                    <!-- COVER USER APPLYING FOR -->
+                    <div style="border: 1px solid black;">
+                        <p style="padding-top: 10px; padding-left:10px; font-size: 20px; letter-spacing: 2px; font-weight:600; "> 
+                        2. Coverage Plan Applying For</p>
+                    </div>
+                    <br>
+
+                    <!-- Prompt user to fill Cover plandetails -->
+                    <div class="col plan">
+                        <div class="basic">
+                            <input type="radio" name="cover" id="cover" value="basic">
+                            <label for="basic">Basic Plan</label><br>
+                        </div>
+
+                        <div class="standard">
+                            <input type="radio" name="cover" id="cover" value="standard">
+                            <label for="standard">Standard Plan</label>
+                        </div><br>
+
+                        <div class="enhanced">
+                            <input type="radio" name="cover" id="cover" value="enhanced">
+                            <label for="standard">Enhanced Plan</label>
+                        </div>
+                    </div>
+                    <!-- Submit button -->
                     <div>
                     <hr class="mb-3">
-                        <!-- Submit button -->
+                        
                         <input class="btn btn-primary" type="submit" id="register" name="register" value="Register">
                     </div>
 
                 </div>
             </form>
-        </div>
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -156,6 +177,8 @@
                         var village  = $('#village').val();
                         var authority  = $('#authority').val();
                         var gender  = $('#gender').val();
+                        var DOB  = $('#DOB').val();
+                        var cover  = $('#cover').val();
                         
                         
                             e.preventDefault();
@@ -164,7 +187,7 @@
                                 type : 'POST',
                                 url  : 'process.php',
                                 data : {firstname: firstname, lastname: lastname, email: email, phone: phone, city: city, nationality: nationality,
-                                    district: district, village: village, authority: authority, gender: gender},
+                                    district: district, village: village, authority: authority, gender: gender, DOB: DOB, cover: cover},
                                 success : function(data){
                                     swal.fire({
                                         'title' : 'Successful',
@@ -189,6 +212,8 @@
                 })
                 
             });
+
+
         </script>
 
     </body>
