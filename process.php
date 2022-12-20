@@ -22,8 +22,10 @@
         $stmtinsert = $db->prepare($sql);
         $result = $stmtinsert ->execute([$firstname, $lastname, $email, $phone, $city, $nationality,
                  $district, $village, $authority, $gender, $DOB, $cover]);
-
+        
+       
             if($result){
+                
                 echo 'Client Registered Succesfully';
             }else{
                 echo 'an error occured while registering the client';

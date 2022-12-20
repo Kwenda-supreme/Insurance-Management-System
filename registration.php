@@ -140,7 +140,7 @@
                         <div class="standard">
                             <input type="radio" name="cover" id="cover" value="standard">
                             <label for="standard">Standard Plan</label>
-                        </div><br>
+                        </div>
 
                         <div class="enhanced">
                             <input type="radio" name="cover" id="cover" value="enhanced">
@@ -167,6 +167,7 @@
                     var isValid = this.form.checkValidity();
 
                     if(isValid){
+                        
                         var firstname   = $('#firstname').val();
                         var lastname    = $('#lastname').val();
                         var email       = $('#email').val();
@@ -206,13 +207,12 @@
 
 
                             });
-                            
+                        
                     } 
 
                 })
                 
             });
-
 
         </script>
 
